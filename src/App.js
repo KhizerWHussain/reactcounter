@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/styles.scss"
+import { useReducer } from "react";
+
+const initialState = 0;
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'Increment':
+      return state + 1;
+    case 'Decrement':
+      return state - 1;
+    case 'Reset':
+      return initialState;
+    default:
+      return state;
+  }
+}
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='body'>
+      <div className="container">
+        <h1 className="count">{state}</h1>
+        <div className="buttons">
+          <button id="inc" className="btn" onClick={() => dispatch({ type: "Increment" })}>Increment</button>
+          <button id="dec" className="btn" onClick={() => dispatch({ type: "Decrement" })}>Decrement</button>
+          <button id="reset" className="btn" onClick={() => dispatch({ type: "Reset" })}>Reset</button>
+        </div>
+      </div>
     </div>
   );
 }

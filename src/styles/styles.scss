@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Text:wght@600&family=Poppins&family=Roboto:wght@100&display=swap');
+
+// sass variables
+$back_color: #FFFFF0;
+$font:'Crimson Text', serif;
+$heading_size: 4rem;
+$btnfont_size: 2rem;
+$btnbackground: #EDEADE;
+$bordercolor: crimson;
+$secondbackgroundcolor: #E2DFD2; 
+
+// scss 
+*{
+    font-family: $font;
+    margin: 0;
+    padding: 0;
+}
+.body {
+    width: 100%;
+    height: 100%;
+    background-color: $secondbackgroundcolor;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    position:absolute;
+    width: 36rem;
+    height: 18rem;
+    background-color: $back_color;
+    border: solid 0.125rem $bordercolor;
+}
+.count {
+    font-family: $font;
+    font-size: $heading_size;
+}
+.buttons {
+    display: flex;
+    margin-top: 3rem;
+    gap: 1.5rem;
+    > .btn {
+        height: 3.75rem;
+        width: 10rem;
+        outline: none;
+        border: none;
+        background-color: $btnbackground;
+        text-align: center;
+        font-size: $btnfont_size;
+        border-radius: 0.75rem;
+        border: 1px solid $bordercolor;
+        &:hover {
+            color: $bordercolor;
+            opacity: 0.8;
+            transition: 0.8s;
+        }
+    }
+}
